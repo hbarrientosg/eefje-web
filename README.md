@@ -27,6 +27,12 @@ Add a database to your app
 ## Setting Up a Local Environment on Mac OS X
 - To run WordPress locally on Mac OS X try [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP).
 
+Open Sequel Pro, and run ...
+
+    CREATE DATABASE wordpress;
+    CREATE USER 'wordpress' IDENTIFIED BY 'wordpress';
+    GRANT ALL PRIVILEGES ON wordpress . * TO 'wordpress';
+
 In wp-config.php, edit as follows. Make sure it matches the database and user that you just created.
 
-    $db = parse_url($_ENV["DATABASE_URL"] ? $_ENV["DATABASE_URL"] : "postgres://wordpress:wordpress@localhost:5432/wordpress");
+    $db = parse_url($_ENV["JAWSDB_MARIA_URL"] ? $_ENV["JAWSDB_MARIA_URL"] : "mysql://wordpress:wordpress@localhost:5432/wordpress");
