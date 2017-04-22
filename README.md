@@ -25,7 +25,7 @@ Add a database to your app
 
 
 ## Setting Up a Local Environment on Mac OS X
-    - To run WordPress locally on Mac OS X try [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP).
+- To run WordPress locally on Mac OS X try [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP).
 
 In wp-config.php, edit as follows. Make sure it matches the database and user that you just created.
 
