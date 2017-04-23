@@ -69,6 +69,35 @@ Deploy to Heroku
       To https://git.heroku.com/strange-turtle-1234.git
       * [new branch]      master -> master
 
+## Usage
+Because a file cannot be written to Heroku's file system, updating and installing plugins or themes should be done locally and then pushed to Heroku.
+
+## Updating
+
+Updating your WordPress version is just a matter of merging the updates into
+the branch created from the installation.
+
+WordPress needs to update the database. After push, navigate to:
+
+    http://your-app-url.herokuapp.com/wp-admin
+
+WordPress will prompt for updating the database. After that you'll be good
+to go.
+
+## Sync database
+Your JAWSDB_MARIA_URL configuration variable will contain the connection information in the following manner.
+
+    mysql://USER:PASS@HOST:3306/DATABASE
+
+
+    mysqldump -h HOST -u USER -pPASS DATABASE > backup.sql
+
+You now have a backup of your database in your terminal’s working directory in a file called backup.sql
+
+To load your backup file into the new JawsDB Maria database, simply issue the following command from the same directory that you saved backup.sql
+
+     mysql -h HOST -u USER -pPASS DATABASE < backup.sql
+
 ## Setting Up a Local Environment on Mac OS X
 - To run WordPress locally on Mac OS X try [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP).
 
