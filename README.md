@@ -23,6 +23,18 @@ Add a database to your app
     Created jawsdb-maria-sinuous-1234 as JAWSDB_MARIA_URL
     Use heroku addons:docs jawsdb-maria to view documentation
 
+Store unique keys and salts in Heroku environment variables. Wordpress can provide random values [here](https://api.wordpress.org/secret-key/1.1/salt/).
+
+    heroku config:set AUTH_KEY='put your unique phrase here' \
+      SECURE_AUTH_KEY='put your unique phrase here' \
+      LOGGED_IN_KEY='put your unique phrase here' \
+      NONCE_KEY='put your unique phrase here' \
+      AUTH_SALT='put your unique phrase here' \
+      SECURE_AUTH_SALT='put your unique phrase here' \
+      LOGGED_IN_SALT='put your unique phrase here' \
+      NONCE_SALT='put your unique phrase here'
+
+Deploy to Heroku
 
 ## Setting Up a Local Environment on Mac OS X
 - To run WordPress locally on Mac OS X try [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP).
@@ -35,4 +47,4 @@ Open Sequel Pro, and run ...
 
 In wp-config.php, edit as follows. Make sure it matches the database and user that you just created.
 
-    $db = parse_url($_ENV["JAWSDB_MARIA_URL"] ? $_ENV["JAWSDB_MARIA_URL"] : "mysql://wordpress:wordpress@localhost:5432/wordpress");
+    $db = parse_url($_ENV["JAWSDB_MARIA_URL"] ? \ $_ENV["JAWSDB_MARIA_URL"] : \ "mysql://wordpress:wordpress@localhost:5432/wordpress");
