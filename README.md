@@ -1,5 +1,6 @@
 #  Heroku - WordPress
-
+This project is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/). The repository comes bundled with:
+* [Amazon S3 and Cloudfront](https://wordpress.org/plugins/amazon-s3-and-cloudfront/)
 
 ## Installation
 
@@ -110,3 +111,9 @@ Open Sequel Pro, and run ...
 In wp-config.php, edit as follows. Make sure it matches the database and user that you just created.
 
     $db = parse_url($_ENV["JAWSDB_MARIA_URL"] ? \ $_ENV["JAWSDB_MARIA_URL"] : \ "mysql://wordpress:wordpress@localhost:5432/wordpress");
+
+Set local variables for development
+
+    $ vim /Applications/MAMP/conf/apache/httpd.conf
+    SetEnv AWS_ACCESS_KEY_ID 'put your unique phrase here'
+    SetEnv AWS_SECRET_ACCESS_KEY 'put your unique phrase here'
