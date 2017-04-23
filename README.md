@@ -35,6 +35,39 @@ Store unique keys and salts in Heroku environment variables. Wordpress can provi
       NONCE_SALT='put your unique phrase here'
 
 Deploy to Heroku
+      $ git push heroku master
+      remote: Compressing source files... done.
+      remote: Building source:
+      remote:
+      remote: -----> PHP app detected
+      remote:
+      remote:  !     WARNING: No 'composer.json' found.
+      remote:        Using 'index.php' to declare app type as PHP is considered legacy
+      remote:        functionality and may lead to unexpected behavior.
+      remote:
+      remote: -----> Bootstrapping...
+      remote: -----> Installing platform packages...
+      remote:        NOTICE: No runtime required in composer.lock; using PHP ^5.5.17
+      remote:        - apache (2.4.20)
+      remote:        - nginx (1.8.1)
+      remote:        - php (5.6.30)
+      remote: -----> Installing dependencies...
+      remote:        Composer version 1.4.1 2017-03-10 09:29:45
+      remote: -----> Preparing runtime environment...
+      remote:        NOTICE: No Procfile, using 'web: heroku-php-apache2'.
+      remote: -----> Checking for additional extensions to install...
+      remote: -----> Discovering process types
+      remote:        Procfile declares types -> web
+      remote:
+      remote: -----> Compressing...
+      remote:        Done: 21.2M
+      remote: -----> Launching...
+      remote:        Released v19
+      remote:        https://strange-turtle-1234.herokuapp.com/ deployed to Heroku
+      remote:
+      remote: Verifying deploy.... done.
+      To https://git.heroku.com/strange-turtle-1234.git
+      * [new branch]      master -> master
 
 ## Setting Up a Local Environment on Mac OS X
 - To run WordPress locally on Mac OS X try [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP).
