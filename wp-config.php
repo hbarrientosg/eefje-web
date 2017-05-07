@@ -20,9 +20,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-$db = parse_url($_ENV["JAWSDB_MARIA_URL"] ?
-	$_ENV["JAWSDB_MARIA_URL"] :
-	"mysql://wordpress:wordpress@localhost:8889/wordpress");
+$db = parse_url(getenv("JAWSDB_MARIA_URL"));
 
 define('DB_NAME', trim($db["path"],"/"));
 
