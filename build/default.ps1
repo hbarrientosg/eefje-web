@@ -5,8 +5,8 @@ properties {
 
 task default -depends Pull
 
-task Pull -depends LoadEnv,SetProductionDB,Backup,SetLocalDB,Restore,SetURLForLocalDB
-task Push -depends LoadEnv,SetLocalDB,SetURLForProductionDB,Backup,SetURLForLocalDB,SetProductionDB,Restore
+task Pull -depends LoadEnv,SetProductionDB,Backup,SetLocalDB,Restore,SetURLForLocalDB {}
+task Push -depends LoadEnv,SetLocalDB,SetURLForProductionDB,Backup,SetURLForLocalDB,SetProductionDB,Restore {}
 
 task LoadEnv {
   Select-String '([^=]*)=(.*)' $envPath | % {
@@ -44,8 +44,6 @@ task SetURLForLocalDB {
   Invoke-Expression ('mysql -h {0} -u {1} -p{2} {3} -e {4}' -f $script:host,$script:username,$script:password,$script:db,$sql)
 }
 
-task Pull -depends LoadEnv,SetProductionDB,Backup,SetLocalDB,Restore,SetURLForLocalDB {}
-
 task Restore {
   Invoke-Expression ('Get-Content {4} | mysql -h {0} -u {1} -p{2} {3}' -f $script:host,$script:username,$script:password,$script:db,$backup)
   Remove-Item $backup
@@ -53,8 +51,4 @@ task Restore {
 
 task Backup {
   Invoke-Expression ('mysqldump -h {0} -u {1} -p{2} {3} > {4}' -f $script:host,$script:username,$script:password,$script:db,$backup)
-}
-
-task Push -depends LoadEnv,SetLocalDB,SetURLForProductionDB,Backup,SetURLForLocalDB,SetProductionDB {
-  Invoke-Expression ('Get-Content {4} | mysql -h {0} -u {1} -p{2} {3}' -f $script:host,$script:username,$script:password,$script:db,$backup)
 }
