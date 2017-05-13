@@ -36,6 +36,7 @@ Store unique keys and salts in Heroku environment variables. Wordpress can provi
       NONCE_SALT='put your unique phrase here'
 
 Deploy to Heroku
+
       $ git push heroku master
       remote: Compressing source files... done.
       remote: Building source:
